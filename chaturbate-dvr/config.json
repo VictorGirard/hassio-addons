@@ -12,10 +12,15 @@
   "icon": "icon.png",
   "ingress": true,
   "ingress_port": 8080,
-  "map": ["share:rw"],
+  "ports": {
+    "8080/tcp": 8080
+  },
+  "ports_description": {
+    "8080/tcp": "Web interface port"
+  },
+  "map": ["share:rw", "media:rw", "config:rw"],
   "options": {
     "username": "",
-    "port": 8080,
     "output_dir": "/share/chaturbate-dvr",
     "output_location": "share",
     "custom_output_path": "",
@@ -28,7 +33,6 @@
   },
   "schema": {
     "username": "str",
-    "port": "int(1,65535)?",
     "output_dir": "str?",
     "output_location": "list(share|media|config|custom)?",
     "custom_output_path": "str?",
@@ -39,5 +43,5 @@
     "proxy": "str?",
     "log_level": "list(debug|info|warn|error)?"
   },
-  "image": "victorgirard/{arch}-chaturbate-dvr"
+  "image": "yamiodymel/chaturbate-dvr"
 }
