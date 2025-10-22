@@ -10,11 +10,11 @@
   "init": false,
   "timeout": 60,
   "ingress": true,
-  "ingress_port": 8099,
+  "ingress_port": 8080,
   "map": ["share:rw"],
   "options": {
     "username": "",
-    "port": 8099,
+    "port": 8080,
     "output_dir": "/share/chaturbate-dvr",
     "output_location": "share",
     "custom_output_path": "",
