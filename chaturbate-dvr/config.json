@@ -1,0 +1,42 @@
+{
+  "name": "Chaturbate DVR",
+  "version": "2.0.3",
+  "slug": "chaturbate-dvr",
+  "description": "Auto records Chaturbate streams when they go online",
+  "url": "https://github.com/teacat/chaturbate-dvr",
+  "arch": ["aarch64", "amd64", "armv7"],
+  "startup": "application",
+  "boot": "auto",
+  "init": false,
+  "timeout": 60,
+  "ingress": true,
+  "ingress_port": 8099,
+  "map": ["share:rw"],
+  "options": {
+    "username": "",
+    "port": 8099,
+    "output_dir": "/share/chaturbate-dvr",
+    "output_location": "share",
+    "custom_output_path": "",
+    "filename_pattern": "{{.Username}}_{{.Year}}-{{.Month}}-{{.Day}}_{{.Hour}}-{{.Minute}}-{{.Second}}{{if .Sequence}}_{{.Sequence}}{{end}}",
+    "quality": "best",
+    "user_agent": "",
+    "cookies": "",
+    "proxy": "",
+    "log_level": "info"
+  },
+  "schema": {
+    "username": "str",
+    "port": "int(1,65535)?",
+    "output_dir": "str?",
+    "output_location": "list(share|media|config|custom)?",
+    "custom_output_path": "str?",
+    "filename_pattern": "str?",
+    "quality": "list(best|worst|720p|480p|360p|240p)?",
+    "user_agent": "str?",
+    "cookies": "str?",
+    "proxy": "str?",
+    "log_level": "list(debug|info|warn|error)?"
+  },
+  "image": "victorgirard/{arch}-chaturbate-dvr"
+}
