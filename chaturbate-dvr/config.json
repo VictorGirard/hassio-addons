@@ -18,30 +18,16 @@
   "ports_description": {
     "8080/tcp": "Web interface port"
   },
-  "map": ["share:rw", "media:rw", "config:rw"],
+  "map": ["share:rw", "config:rw"],
   "options": {
     "username": "",
-    "output_dir": "/share/chaturbate-dvr",
-    "output_location": "share",
-    "custom_output_path": "",
-    "filename_pattern": "{{.Username}}_{{.Year}}-{{.Month}}-{{.Day}}_{{.Hour}}-{{.Minute}}-{{.Second}}{{if .Sequence}}_{{.Sequence}}{{end}}",
-    "quality": "best",
-    "user_agent": "",
-    "cookies": "",
-    "proxy": "",
-    "log_level": "info"
+    "output_dir": "/usr/src/app/videos",
+    "config_dir": "/usr/src/app/conf"
   },
   "schema": {
-    "username": "str",
+    "username": "str?",
     "output_dir": "str?",
-    "output_location": "list(share|media|config|custom)?",
-    "custom_output_path": "str?",
-    "filename_pattern": "str?",
-    "quality": "list(best|worst|720p|480p|360p|240p)?",
-    "user_agent": "str?",
-    "cookies": "str?",
-    "proxy": "str?",
-    "log_level": "list(debug|info|warn|error)?"
+    "config_dir": "str?"
   },
   "image": "yamiodymel/chaturbate-dvr"
 }

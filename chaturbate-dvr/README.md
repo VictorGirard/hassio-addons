@@ -28,23 +28,18 @@ This add-on provides an automated way to record Chaturbate streams. It monitors 
 
 ### Required Settings
 
-- **Username**: The Chaturbate username to monitor
+- **Username**: The Chaturbate username to monitor (optional, can be set via web interface)
 
 ### Optional Settings
 
-- **Port**: Web interface port (default: 8080, used for Home Assistant ingress)
-- **Output Location**: Choose where to save recordings:
-  - `share` - Home Assistant share folder (default: `/share/chaturbate-dvr`)
-  - `media` - Home Assistant media folder (`/media/chaturbate-dvr`)
-  - `config` - Home Assistant config folder (`/config/chaturbate-dvr`)
-  - `custom` - Custom path (requires custom_output_path)
-- **Custom Output Path**: Custom directory path (only when output_location is set to 'custom')
-- **Filename Pattern**: Pattern for naming files (supports Go template syntax)
-- **Quality**: Recording quality (best, worst, 720p, 480p, 360p, 240p)
-- **User Agent**: Custom user agent string
-- **Cookies**: Cookie string for authentication
-- **Proxy**: Proxy server URL
-- **Log Level**: Logging verbosity (debug, info, warn, error)
+- **Output Directory**: Directory where videos will be saved (default: `/usr/src/app/videos`)
+- **Config Directory**: Directory for configuration files (default: `/usr/src/app/conf`)
+
+### Important Notes
+
+- **Videos Storage**: Videos are saved to `/usr/src/app/videos` inside the container, which is mapped to Home Assistant's `/share` folder
+- **Configuration**: Configuration files are stored in `/usr/src/app/conf` inside the container, which is mapped to Home Assistant's `/config` folder
+- **Web Interface**: Access the web interface through Home Assistant ingress to configure additional settings like quality, filename patterns, etc.
 
 ### Filename Pattern
 
@@ -65,20 +60,19 @@ Example patterns:
 
 ## Usage
 
-1. Configure the add-on with your desired settings:
-   - Set the username to monitor
-   - Choose your preferred output location
-   - Configure other options as needed
-2. Start the add-on
-3. Access the web interface through the Home Assistant add-on panel (ingress)
-4. The add-on will automatically start recording when the monitored channel goes live
+1. Install and start the add-on
+2. Access the web interface through the Home Assistant add-on panel (ingress)
+3. Configure the application via the web interface:
+   - Add usernames to monitor
+   - Set recording quality and other preferences
+   - Configure filename patterns
+4. The add-on will automatically start recording when monitored channels go live
 
-### Output Directory Options
+### File Storage
 
-- **Share Folder** (`/share/chaturbate-dvr`): Accessible via Home Assistant file editor and Samba shares
-- **Media Folder** (`/media/chaturbate-dvr`): Integrated with Home Assistant media browser
-- **Config Folder** (`/config/chaturbate-dvr`): Stored with Home Assistant configuration
-- **Custom Path**: Specify any custom directory path (ensure proper permissions)
+- **Videos**: Saved to `/usr/src/app/videos` (mapped to Home Assistant `/share` folder)
+- **Configuration**: Stored in `/usr/src/app/conf` (mapped to Home Assistant `/config` folder)
+- **Access**: Files are accessible via Home Assistant file editor and Samba shares
 
 ## Development
 
