@@ -9,6 +9,7 @@
   "boot": "auto",
   "init": false,
   "timeout": 60,
+  "icon": "icon.png",
   "ingress": true,
   "ingress_port": 8080,
   "map": ["share:rw"],
