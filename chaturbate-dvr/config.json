@@ -38,5 +38,5 @@
     "proxy": "str?",
     "log_level": "list(debug|info|warn|error)?"
   },
-  "image": "yamiodymel/chaturbate-dvr"
+  "image": "victorgirard/{arch}-chaturbate-dvr"
 }
