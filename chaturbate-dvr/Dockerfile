@@ -1,44 +1,25 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM yamiodymel/chaturbate-dvr
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Setup base
-ARG BUILD_ARCH
-ARG CHATURBATE_DVR_VERSION=2.0.3
-
-# Install system dependencies
+# Install bashio for Home Assistant integration
 RUN \
     apk add --no-cache \
+        bashio \
         curl \
-        wget \
-        ffmpeg \
-        ca-certificates \
+        jq \
     && \
-    # Download and install chaturbate-dvr
-    case "${BUILD_ARCH}" in \
-        aarch64) ARCH="arm64" ;; \
-        amd64) ARCH="amd64" ;; \
-        armv7) ARCH="arm" ;; \
-    esac \
+    mkdir -p /etc/cont-init.d \
     && \
-    curl -L -o /tmp/chaturbate-dvr.tar.gz \
-        "https://github.com/teacat/chaturbate-dvr/releases/download/v${CHATURBATE_DVR_VERSION}/chaturbate-dvr_${CHATURBATE_DVR_VERSION}_linux_${ARCH}.tar.gz" \
-    && \
-    tar -xzf /tmp/chaturbate-dvr.tar.gz -C /usr/local/bin/ \
-    && \
-    rm /tmp/chaturbate-dvr.tar.gz \
-    && \
-    chmod +x /usr/local/bin/chaturbate-dvr
+    mkdir -p /etc/services.d/chaturbate-dvr
 
 # Copy root filesystem
 COPY rootfs /
 
 # Set up the application
 RUN \
-    mkdir -p /app \
-    && \
     chmod +x /etc/cont-init.d/* \
     && \
     chmod +x /etc/services.d/*/run
@@ -47,7 +28,6 @@ RUN \
 LABEL \
     io.hass.name="Chaturbate DVR" \
     io.hass.description="Auto records Chaturbate streams when they go online" \
-    io.hass.version="${CHATURBATE_DVR_VERSION}" \
+    io.hass.version="2.0.3" \
     io.hass.type="addon" \
-    io.hass.arch="${BUILD_ARCH}" \
     maintainer="victorgirard"

@@ -82,34 +82,17 @@ Example patterns:
 
 ## Development
 
-### Building the Add-on
+This add-on is based on the [yamiodymel/chaturbate-dvr](https://hub.docker.com/r/yamiodymel/chaturbate-dvr) Docker image, which provides the core chaturbate-dvr functionality. The add-on adds Home Assistant integration features including:
 
-To build the Docker images locally:
-
-```bash
-cd chaturbate-dvr
-./build.sh
-```
-
-This will build images for all supported architectures (aarch64, amd64, armv7).
-
-### Publishing Images
-
-The images are automatically built and published to GitHub Container Registry via GitHub Actions when changes are pushed to the repository.
-
-Manual publishing:
-```bash
-# Login to GitHub Container Registry
-docker login ghcr.io
-
-# Push all images
-docker push --all-tags ghcr.io/victorgirard/
-```
+- Configuration management through Home Assistant
+- Ingress support for web interface access
+- Flexible output directory options
+- Integration with Home Assistant's file system
 
 ## Support
 
 For issues and feature requests, please visit the [GitHub repository](https://github.com/teacat/chaturbate-dvr).
 
-## License
+## Credits
 
-This add-on is based on the [Chaturbate DVR](https://github.com/teacat/chaturbate-dvr) project, which is licensed under the MIT License.
+This add-on is based on the [yamiodymel/chaturbate-dvr](https://hub.docker.com/r/yamiodymel/chaturbate-dvr) Docker image, which is built from the [Chaturbate DVR](https://github.com/teacat/chaturbate-dvr) project, licensed under the MIT License.
