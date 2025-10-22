@@ -23,12 +23,12 @@ RUN \
         armv7) ARCH="arm" ;; \
     esac \
     && \
-    curl -L -o /usr/local/bin/chaturbate-dvr \
+    curl -L -o /tmp/chaturbate-dvr.tar.gz \
         "https://github.com/teacat/chaturbate-dvr/releases/download/v${CHATURBATE_DVR_VERSION}/chaturbate-dvr_${CHATURBATE_DVR_VERSION}_linux_${ARCH}.tar.gz" \
     && \
-    tar -xzf /usr/local/bin/chaturbate-dvr -C /usr/local/bin/ \
+    tar -xzf /tmp/chaturbate-dvr.tar.gz -C /usr/local/bin/ \
     && \
-    rm /usr/local/bin/chaturbate-dvr \
+    rm /tmp/chaturbate-dvr.tar.gz \
     && \
     chmod +x /usr/local/bin/chaturbate-dvr
 

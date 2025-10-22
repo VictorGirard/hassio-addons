@@ -80,6 +80,32 @@ Example patterns:
 - **Config Folder** (`/config/chaturbate-dvr`): Stored with Home Assistant configuration
 - **Custom Path**: Specify any custom directory path (ensure proper permissions)
 
+## Development
+
+### Building the Add-on
+
+To build the Docker images locally:
+
+```bash
+cd chaturbate-dvr
+./build.sh
+```
+
+This will build images for all supported architectures (aarch64, amd64, armv7).
+
+### Publishing Images
+
+The images are automatically built and published to GitHub Container Registry via GitHub Actions when changes are pushed to the repository.
+
+Manual publishing:
+```bash
+# Login to GitHub Container Registry
+docker login ghcr.io
+
+# Push all images
+docker push --all-tags ghcr.io/victorgirard/
+```
+
 ## Support
 
 For issues and feature requests, please visit the [GitHub repository](https://github.com/teacat/chaturbate-dvr).
