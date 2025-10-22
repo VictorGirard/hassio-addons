@@ -32,7 +32,7 @@ This add-on provides an automated way to record Chaturbate streams. It monitors 
 
 ### Optional Settings
 
-- **Port**: Web interface port (default: 8099, used for Home Assistant ingress)
+- **Port**: Web interface port (default: 8080, used for Home Assistant ingress)
 - **Output Location**: Choose where to save recordings:
   - `share` - Home Assistant share folder (default: `/share/chaturbate-dvr`)
   - `media` - Home Assistant media folder (`/media/chaturbate-dvr`)

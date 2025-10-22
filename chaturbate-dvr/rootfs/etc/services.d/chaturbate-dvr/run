@@ -26,8 +26,8 @@ else
     OUTPUT_DIR="/share/chaturbate-dvr"
 fi
 
-# Use ingress port (8099) for Home Assistant integration
-PORT=8099
+# Use ingress port (8080) for Home Assistant integration
+PORT=8080
 
 # Build command arguments
 ARGS="-u ${USERNAME} -p ${PORT} -o ${OUTPUT_DIR}"
