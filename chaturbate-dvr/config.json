@@ -18,14 +18,16 @@
     "8080/tcp": "Web interface port"
   },
   "webui": "http://[HOST]:[PORT:8080]/",
-  "map": ["share:rw", "config:rw"],
+  "map": ["share:rw", "config:rw", "media:rw"],
   "host_network": false,
   "options": {
+    "pattern": "/media/ELEMENTS/ctb/{{.Username}}/{{.Year}}-{{.Month}}-{{.Day}}_{{.Hour}}-{{.Minute}}-{{.Second}}_{{.Sequence}}",
     "username": "",
     "output_dir": "/usr/src/app/videos",
     "config_dir": "/usr/src/app/conf"
   },
   "schema": {
+    "pattern": "str?",
     "username": "str?",
     "output_dir": "str?",
     "config_dir": "str?"
