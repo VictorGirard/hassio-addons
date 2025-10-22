@@ -68,6 +68,17 @@ Example patterns:
    - Configure filename patterns
 4. The add-on will automatically start recording when monitored channels go live
 
+### Troubleshooting Ingress Issues
+
+If you encounter 404 errors when accessing the web interface:
+
+1. **Clear browser cache** and try again
+2. **Restart the add-on** to refresh the ingress connection
+3. **Check the logs** for any connection issues
+4. **Verify the port** is correctly set to 8080 in the configuration
+
+The ingress is configured with proper proxy headers and WebSocket support for the chaturbate-dvr application.
+
 ### File Storage
 
 - **Videos**: Saved to `/usr/src/app/videos` (mapped to Home Assistant `/share` folder)
